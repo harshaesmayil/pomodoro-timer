@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
     color:rgb(141, 173, 165);
 }
 body {
@@ -10,11 +10,13 @@ body {
     background-color: #f3ead0;
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
     gap: 2em;
-    color:rgb(141, 173, 165);
+    color: rgb(141, 173, 165);
     border-radius: 2em;
     padding: 4em 3em;
+    /* Remove the GIF as a background image */
+    background-image: none;
 }
 .container {
     display: flex;
@@ -26,6 +28,7 @@ body {
     background-color: #ffffff;
     border-radius: 3em;
     padding: 4em 3em;
+    position: relative; /* Ensure absolute positioning works inside */
 }
 title {
     font-size: 3em;
@@ -69,4 +72,124 @@ button:hover {
     font-weight: 600;
     color: #f3ead0;
     text-align: center;
+}
+.flip-clock {
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+    font-family: 'DS-Digital', 'Orbitron', 'Courier New', monospace, 'Poppins', sans-serif;
+    background: none;
+    color: #222;
+    border-radius: 0.2em;
+    padding: 0.1em 0.3em;
+    box-shadow: none;
+    gap: 0.1em;
+    letter-spacing: 0.05em;
+}
+
+.flip-digit {
+    display: inline-block;
+    font-family: 'DS-Digital', 'Orbitron', 'Courier New', monospace, 'Poppins', sans-serif;
+    background: #f3ead0;
+    border-radius: 0.2em;
+    min-width: 1.2em;
+    text-align: center;
+    margin: 0 0.1em;
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), background 0.3s;
+    will-change: transform;
+}
+
+.flip-digit.flipping {
+    transform: rotateX(360deg) scale(1.1);
+    background: #444;
+}
+
+.flip-separator {
+    margin: 0 0.1em;
+    color: #f3ead0;
+}
+.digital-clock, #time {
+    font-family: 'Baloo 2', 'Poppins', sans-serif;
+    font-size: 2em;
+    letter-spacing: 0.08em;
+    color: rgb(141, 173, 165);
+    background: #f3ead0;
+    border-radius: 0.5em;
+    padding: 0.2em 0.7em;
+    font-variant-numeric: tabular-nums;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    min-width: 3.2em;
+}
+.timer-gif-row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.gif-and-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 1em;
+    justify-content: center;
+}
+
+.gif-crop-container,
+.side-gif {
+    display: none !important;
+}
+.toast-gif-crop {
+    position: absolute;
+    left: 1.2em;         /* Space from the left edge of the container */
+    bottom: 1.2em;       /* Space from the bottom edge of the container */
+    width: 200px;         /* Cropped width */
+    height: 230px;        /* Cropped height */
+    overflow: hidden;
+    border-bottom-left-radius: 1.2em;
+    z-index: 2;
+    background: #fff;
+}
+
+.toast-gif {
+    width: 280px;         /* Larger than crop for zoom effect */
+    height: 270px;
+    object-fit: cover;
+    object-position: 60% 60%; /* Adjust to center the toast */
+    display: block;
+}
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.settings-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+    gap: 0.7em;
+}
+
+.settings label {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: inline-block;
+    text-align: right;
+}
+
+.settings input[type="number"] {
+    font-size: 1.1em;
+    padding: 0.3em 0.7em;
+    border-radius: 0.5em;
+    border: 1px solid #cfd8dc;
+    width: 4em;
+    text-align: center;
+    margin-bottom: 0;
 }

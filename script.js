@@ -23,22 +23,23 @@ function resetTimer() {
     pauseTimer();
     let minutes = parseInt(document.getElementById("work-duration").value, 10) || 25;
     timeLeft = minutes * 60;
-    document.getElementById("time").textContent = `${minutes}:00`;
+    document.getElementById("time").textContent = (minutes < 10 ? "0" : "") + minutes + ":00";
 }
 
 function updateTimer() {
     if (timeLeft <= 0) {
         clearInterval(timer);
         isRunning = false;
-        document.getElementById("alarm-sound").play(); // Play sound
-        alert("Time's up! Take a break.");
+        document.getElementById("alarm-sound").src = "alarm.mp3.wav";
+        document.getElementById("alarm-sound").play();
+        showDesktopNotification("Time's up! Take a break.");
         return;
     }
     timeLeft--;
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
-    document.getElementById("time").textContent = 
-        `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    document.getElementById("time").textContent =
+        (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 }
 
 function displayNotification(message) {
