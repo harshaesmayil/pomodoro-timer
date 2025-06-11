@@ -2,7 +2,7 @@
 
 A beautifully minimalist and customizable Pomodoro Timer web app designed to boost your focus and productivity, with a little help from a friendly animated toast! 😊
 
-![Screenshot of the Pomodoro Timer](Screenshot%202025-06-11%20192348.png)
+![Screenshot of the Pomodoro Timer](![image](https://github.com/user-attachments/assets/1e4e2c86-42c3-4841-9728-098c5b5a3ea1))
 
 ## ✨ About The Project
 
